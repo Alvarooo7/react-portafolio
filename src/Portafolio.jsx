@@ -8,13 +8,20 @@ class Portafolio extends Component {
         this.props = props;
         this.projects = [
             "react-portafolio",
+            "react-table"
         ];
     }
     projects_images() {
         var images = [];
+        if (window.location.pathname.startsWith("/react-portafolio")) {
+            var starting_with = ".";
+        }
+        else {
+            var starting_with = "./react-portafolio";
+        }
         this.projects.map((project) => {
             images.push((
-                <img src={"./" + project + "/img/projects/" + project + ".png"}/>
+                <img src={starting_with + "/img/projects/" + project + ".png"}/>
             ));
         });
         return images;
